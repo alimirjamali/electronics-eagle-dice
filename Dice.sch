@@ -5487,7 +5487,7 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 </class>
 </classes>
 <parts>
-<part name="G1" library="battery" deviceset="CH291-1220LF" device=""/>
+<part name="BATT" library="battery" deviceset="CH291-1220LF" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="P+1" library="supply1" deviceset="VCC" device=""/>
 <part name="IC1" library="microchip" deviceset="PIC12F6*" device="SN" technology="29"/>
@@ -5502,16 +5502,17 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <part name="R2" library="resistor" deviceset="R-EU_" device="R0805"/>
 <part name="R3" library="resistor" deviceset="R-EU_" device="R0805"/>
 <part name="R4" library="resistor" deviceset="R-EU_" device="R0805"/>
-<part name="SW1" library="Seeed-OPL-Switch" deviceset="SMD-BUTTON(2P-6.0X3.0X2.5MM)" device="-DHT-1163S"/>
+<part name="SW" library="Seeed-OPL-Switch" deviceset="SMD-BUTTON(2P-6.0X3.0X2.5MM)" device="-DHT-1163S"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
+<part name="P+2" library="supply1" deviceset="VCC" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 </plain>
 <instances>
-<instance part="G1" gate="G1" x="22.86" y="58.42" rot="R90"/>
+<instance part="BATT" gate="G1" x="22.86" y="35.56" rot="R90"/>
 <instance part="GND1" gate="1" x="22.86" y="12.7"/>
 <instance part="P+1" gate="VCC" x="22.86" y="93.98"/>
 <instance part="IC1" gate="G$1" x="53.34" y="60.96"/>
@@ -5526,9 +5527,10 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <instance part="R2" gate="G$1" x="81.28" y="63.5"/>
 <instance part="R3" gate="G$1" x="81.28" y="58.42"/>
 <instance part="R4" gate="G$1" x="81.28" y="53.34"/>
-<instance part="SW1" gate="G$1" x="38.1" y="81.28"/>
+<instance part="SW" gate="G$1" x="30.48" y="73.66" rot="R270"/>
 <instance part="GND2" gate="1" x="55.88" y="12.7"/>
 <instance part="GND3" gate="1" x="139.7" y="12.7"/>
+<instance part="P+2" gate="VCC" x="53.34" y="93.98"/>
 </instances>
 <busses>
 </busses>
@@ -5536,19 +5538,24 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <net name="VCC" class="0">
 <segment>
 <pinref part="P+1" gate="VCC" pin="VCC"/>
-<pinref part="G1" gate="G1" pin="+"/>
+<pinref part="BATT" gate="G1" pin="+"/>
 <wire x1="22.86" y1="91.44" x2="22.86" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="SW1" gate="G$1" pin="1"/>
-<wire x1="22.86" y1="81.28" x2="22.86" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="SW" gate="G$1" pin="1"/>
+<wire x1="22.86" y1="81.28" x2="22.86" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="22.86" y1="81.28" x2="30.48" y2="81.28" width="0.1524" layer="91"/>
 <junction x="22.86" y="81.28"/>
+</segment>
+<segment>
+<pinref part="P+2" gate="VCC" pin="VCC"/>
+<pinref part="IC1" gate="G$1" pin="VDD"/>
+<wire x1="53.34" y1="91.44" x2="53.34" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="G1" gate="G1" pin="-"/>
+<pinref part="BATT" gate="G1" pin="-"/>
 <pinref part="GND1" gate="1" pin="GND"/>
-<wire x1="22.86" y1="53.34" x2="22.86" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="30.48" x2="22.86" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="VSS"/>
@@ -5582,36 +5589,36 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <junction x="139.7" y="38.1"/>
 </segment>
 </net>
-<net name="N$1" class="0">
+<net name="GP3" class="0">
 <segment>
-<pinref part="SW1" gate="G$1" pin="2"/>
-<pinref part="IC1" gate="G$1" pin="VDD"/>
-<wire x1="45.72" y1="81.28" x2="53.34" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="81.28" x2="53.34" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="SW" gate="G$1" pin="2"/>
+<wire x1="30.48" y1="66.04" x2="30.48" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="GP3"/>
+<wire x1="30.48" y1="55.88" x2="40.64" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="GP0" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="GP0"/>
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="68.58" y1="68.58" x2="76.2" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="GP1" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="GP1"/>
 <pinref part="R2" gate="G$1" pin="1"/>
 <wire x1="68.58" y1="63.5" x2="76.2" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="GP2" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="GP2"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 <wire x1="68.58" y1="58.42" x2="76.2" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$5" class="0">
+<net name="GP4" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="GP4/CLKOUT"/>
 <wire x1="40.64" y1="60.96" x2="35.56" y2="60.96" width="0.1524" layer="91"/>
@@ -5622,7 +5629,7 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <wire x1="71.12" y1="53.34" x2="76.2" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$6" class="0">
+<net name="LED3&amp;5" class="0">
 <segment>
 <pinref part="R1" gate="G$1" pin="2"/>
 <pinref part="LED5" gate="G$1" pin="A"/>
@@ -5636,7 +5643,7 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <junction x="99.06" y="68.58"/>
 </segment>
 </net>
-<net name="N$7" class="0">
+<net name="LED1&amp;7" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="2"/>
 <pinref part="LED1" gate="G$1" pin="A"/>
@@ -5650,7 +5657,7 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <junction x="96.52" y="63.5"/>
 </segment>
 </net>
-<net name="N$11" class="0">
+<net name="LED4" class="0">
 <segment>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="86.36" y1="58.42" x2="93.98" y2="58.42" width="0.1524" layer="91"/>
@@ -5660,7 +5667,7 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <wire x1="119.38" y1="48.26" x2="119.38" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$12" class="0">
+<net name="LED2&amp;6" class="0">
 <segment>
 <pinref part="R4" gate="G$1" pin="2"/>
 <wire x1="86.36" y1="53.34" x2="91.44" y2="53.34" width="0.1524" layer="91"/>
