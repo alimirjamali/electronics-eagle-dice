@@ -5498,23 +5498,26 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <part name="LED5" library="led" deviceset="LED" device="CHIPLED_0805"/>
 <part name="LED6" library="led" deviceset="LED" device="CHIPLED_0805"/>
 <part name="LED7" library="led" deviceset="LED" device="CHIPLED_0805"/>
-<part name="R1" library="resistor" deviceset="R-EU_" device="R0805"/>
-<part name="R2" library="resistor" deviceset="R-EU_" device="R0805"/>
-<part name="R3" library="resistor" deviceset="R-EU_" device="R0805"/>
-<part name="R4" library="resistor" deviceset="R-EU_" device="R0805"/>
+<part name="R1" library="resistor" deviceset="R-EU_" device="R0805" value="470"/>
+<part name="R2" library="resistor" deviceset="R-EU_" device="R0805" value="470"/>
+<part name="R3" library="resistor" deviceset="R-EU_" device="R0805" value="1K"/>
+<part name="R4" library="resistor" deviceset="R-EU_" device="R0805" value="470"/>
 <part name="SW" library="Seeed-OPL-Switch" deviceset="SMD-BUTTON(2P-6.0X3.0X2.5MM)" device="-DHT-1163S"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="VCC" device=""/>
+<part name="R5" library="resistor" deviceset="R-EU_" device="R0805" value="47K"/>
+<part name="P+3" library="supply1" deviceset="VCC" device=""/>
+<part name="GND4" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 </plain>
 <instances>
-<instance part="BATT" gate="G1" x="22.86" y="35.56" rot="R90"/>
-<instance part="GND1" gate="1" x="22.86" y="12.7"/>
-<instance part="P+1" gate="VCC" x="22.86" y="93.98"/>
+<instance part="BATT" gate="G1" x="12.7" y="33.02" rot="R90"/>
+<instance part="GND1" gate="1" x="12.7" y="12.7"/>
+<instance part="P+1" gate="VCC" x="12.7" y="93.98"/>
 <instance part="IC1" gate="G$1" x="53.34" y="60.96"/>
 <instance part="LED1" gate="G$1" x="106.68" y="58.42"/>
 <instance part="LED2" gate="G$1" x="106.68" y="43.18"/>
@@ -5523,14 +5526,29 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <instance part="LED5" gate="G$1" x="132.08" y="58.42"/>
 <instance part="LED6" gate="G$1" x="132.08" y="43.18"/>
 <instance part="LED7" gate="G$1" x="132.08" y="27.94"/>
-<instance part="R1" gate="G$1" x="81.28" y="68.58"/>
-<instance part="R2" gate="G$1" x="81.28" y="63.5"/>
-<instance part="R3" gate="G$1" x="81.28" y="58.42"/>
-<instance part="R4" gate="G$1" x="81.28" y="53.34"/>
-<instance part="SW" gate="G$1" x="30.48" y="73.66" rot="R270"/>
+<instance part="R1" gate="G$1" x="81.28" y="68.58" smashed="yes">
+<attribute name="NAME" x="77.47" y="70.0786" size="1.778" layer="95"/>
+<attribute name="VALUE" x="82.55" y="70.104" size="1.778" layer="96"/>
+</instance>
+<instance part="R2" gate="G$1" x="81.28" y="63.5" smashed="yes">
+<attribute name="NAME" x="77.47" y="64.9986" size="1.778" layer="95"/>
+<attribute name="VALUE" x="82.55" y="65.024" size="1.778" layer="96"/>
+</instance>
+<instance part="R3" gate="G$1" x="81.28" y="58.42" smashed="yes">
+<attribute name="NAME" x="77.47" y="59.9186" size="1.778" layer="95"/>
+<attribute name="VALUE" x="82.55" y="59.944" size="1.778" layer="96"/>
+</instance>
+<instance part="R4" gate="G$1" x="81.28" y="53.34" smashed="yes">
+<attribute name="NAME" x="77.47" y="54.8386" size="1.778" layer="95"/>
+<attribute name="VALUE" x="82.296" y="54.864" size="1.778" layer="96"/>
+</instance>
+<instance part="SW" gate="G$1" x="25.4" y="30.48" rot="R90"/>
 <instance part="GND2" gate="1" x="55.88" y="12.7"/>
 <instance part="GND3" gate="1" x="139.7" y="12.7"/>
 <instance part="P+2" gate="VCC" x="53.34" y="93.98"/>
+<instance part="R5" gate="G$1" x="25.4" y="71.12" rot="R90"/>
+<instance part="P+3" gate="VCC" x="25.4" y="93.98"/>
+<instance part="GND4" gate="1" x="25.4" y="12.7"/>
 </instances>
 <busses>
 </busses>
@@ -5539,23 +5557,24 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <segment>
 <pinref part="P+1" gate="VCC" pin="VCC"/>
 <pinref part="BATT" gate="G1" pin="+"/>
-<wire x1="22.86" y1="91.44" x2="22.86" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="SW" gate="G$1" pin="1"/>
-<wire x1="22.86" y1="81.28" x2="22.86" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="22.86" y1="81.28" x2="30.48" y2="81.28" width="0.1524" layer="91"/>
-<junction x="22.86" y="81.28"/>
+<wire x1="12.7" y1="91.44" x2="12.7" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="P+2" gate="VCC" pin="VCC"/>
 <pinref part="IC1" gate="G$1" pin="VDD"/>
 <wire x1="53.34" y1="91.44" x2="53.34" y2="73.66" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="P+3" gate="VCC" pin="VCC"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="91.44" x2="25.4" y2="76.2" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="GND" class="0">
 <segment>
 <pinref part="BATT" gate="G1" pin="-"/>
 <pinref part="GND1" gate="1" pin="GND"/>
-<wire x1="22.86" y1="30.48" x2="22.86" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="27.94" x2="12.7" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="VSS"/>
@@ -5588,13 +5607,20 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <wire x1="132.08" y1="38.1" x2="139.7" y2="38.1" width="0.1524" layer="91"/>
 <junction x="139.7" y="38.1"/>
 </segment>
+<segment>
+<pinref part="SW" gate="G$1" pin="1"/>
+<pinref part="GND4" gate="1" pin="GND"/>
+<wire x1="25.4" y1="22.86" x2="25.4" y2="15.24" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="GP3" class="0">
 <segment>
 <pinref part="SW" gate="G$1" pin="2"/>
-<wire x1="30.48" y1="66.04" x2="30.48" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="38.1" x2="25.4" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="GP3"/>
-<wire x1="30.48" y1="55.88" x2="40.64" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="55.88" x2="40.64" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+<wire x1="25.4" y1="66.04" x2="25.4" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GP0" class="0">
